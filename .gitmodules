@@ -1,0 +1,3 @@
+[submodule "src/app/note"]
+	path = src/app/note
+	url = git@github.com:KyllianGautier/jarvis-web-client-submodule-note.git
