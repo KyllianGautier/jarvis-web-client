@@ -1,0 +1,4 @@
+<button mat-icon-button [ngSwitch]="isLightTheme" (click)="toggleTheme()">
+  <mat-icon *ngSwitchCase="true">dark_mode</mat-icon>
+  <mat-icon *ngSwitchCase="false">light_mode</mat-icon>
+</button>

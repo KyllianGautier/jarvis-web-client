@@ -1,0 +1,57 @@
+// Custom Theming for Angular Material
+// For more information: https://material.angular.io/guide/theming
+@use '@angular/material' as mat;
+
+@include mat.core();
+
+// Custom theme palettes:
+$jarvis-web-client-primary: mat.define-palette(mat.$purple-palette);
+$jarvis-web-client-accent: mat.define-palette(mat.$pink-palette);
+
+// Light theme:
+$jarvis-web-client-light-theme: mat.define-light-theme((
+  color: (
+    primary: $jarvis-web-client-primary,
+    accent: $jarvis-web-client-accent
+  )
+));
+
+// Dark theme:
+$jarvis-web-client-dark-theme: mat.define-dark-theme((
+  color: (
+    primary: $jarvis-web-client-primary,
+    accent: $jarvis-web-client-accent
+  )
+));
+
+
+// Theming components mixins:
+@mixin all-component-colors($config-or-theme) {
+  @include mat.all-component-colors($config-or-theme);
+}
+
+@mixin all-component-typographies($config-or-theme) {
+  @include mat.all-component-typographies($config-or-theme);
+}
+
+@mixin all-component-densities($config-or-theme) {
+  @include mat.all-component-densities($config-or-theme);
+}
+
+
+// Apply themes:
+@include all-component-densities($jarvis-web-client-light-theme);
+@include all-component-typographies($jarvis-web-client-light-theme);
+
+.light-theme {
+  @include all-component-colors($jarvis-web-client-light-theme);
+}
+
+.dark-theme {
+  @include all-component-colors($jarvis-web-client-dark-theme);
+}
+
+
+// Global styles:
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
